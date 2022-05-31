@@ -1,0 +1,1 @@
+import { projectFirestore } from "./config";
