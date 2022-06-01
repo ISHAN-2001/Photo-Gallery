@@ -7,7 +7,7 @@
 
 .App{
     margin: 20px auto;
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 .heading{
@@ -28,3 +28,28 @@
 input[type=file]{
     display: none;
 }
+.image-list{
+    margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.pic{
+    overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  /* padding controls height, will always be perfectly square regardless of width */
+  position: relative;
+  /* opacity: 0.8; */
+}
+.pic img{
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 150%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+

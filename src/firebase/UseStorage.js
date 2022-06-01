@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
-import { projectStorage, projectFirestore } from "./config";
+import { projectStorage } from "./config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
-import { collection, addDoc } from "firebase/firestore";
-import { async } from "@firebase/util";
 
 const UseStorage = (file) => {
     const [progress, setprogress] = useState(0)
     const [error, seterror] = useState(null)
     const [url, seturl] = useState(null)
+    const filename = Date.now();
 
     useEffect(() => {
 
-        const storageRef = ref(projectStorage, `${Date.now()}`);
+        const storageRef = ref(projectStorage, `${filename}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on(
@@ -29,19 +28,6 @@ const UseStorage = (file) => {
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
                     seturl(url);
-
-                    async function addData(url) {
-                        try {
-                            const docRef = await addDoc(collection(projectFirestore, "images"), {
-                                url: url,
-                                time:Date.now()
-                            });
-                            console.log("Document written with ID: ", docRef.id);
-                        } catch (e) {
-                            console.error("Error adding document: ", e);
-                        }
-                    }
-                    addData(url);
                 }
                 );
             }
@@ -49,7 +35,7 @@ const UseStorage = (file) => {
 
     }, [file])
 
-    return { progress, error, url }
+    return { progress, error, url,filename }
 }
 
 export default UseStorage;

@@ -38,7 +38,7 @@ export default function UploadForm() {
                 <p>{file.name}</p>
             )} */}
 
-            {file && <ProgressBar file={file} setfile={setfile } /> }
+            {file && <ProgressBar file={file} setfile={setfile}  /> }
         </div>
     )
 }
