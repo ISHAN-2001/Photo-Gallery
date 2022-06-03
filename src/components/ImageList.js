@@ -2,7 +2,8 @@ import React from 'react'
 //import Getdata from '../firebase/GetData'
 import { useState,useEffect } from 'react'
 import { projectFirestore } from '../firebase/config';
-import { doc, onSnapshot, collection,query, orderBy } from "firebase/firestore";
+import { onSnapshot, collection, query, orderBy } from "firebase/firestore";
+import { motion } from 'framer-motion';
 
 export default function ImageList() {
 
@@ -33,9 +34,9 @@ export default function ImageList() {
                 {data &&
                     data.map(record =>
                     (
-                        <div className="pic" key={record.id}>
+                        <motion.div className="pic" key={record.id} layout>
                             <img src={record.url} alt="error" />
-                        </div>
+                        </motion.div>
                     )
                     )}
             </div>

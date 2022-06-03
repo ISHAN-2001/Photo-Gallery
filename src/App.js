@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="heading">My Gallery</h1>
+      <h1 className="heading">My Photo Gallery</h1>
       <UploadForm  />
       <ImageList />
     </div>
