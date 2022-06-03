@@ -28,8 +28,7 @@ export default function ImageList() {
 
     return (
         <div>
-            <p>This is image list</p>
-
+            
             <div className="image-list">
                 {data &&
                     data.map(record =>
