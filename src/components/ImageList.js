@@ -4,6 +4,8 @@ import { useState,useEffect } from 'react'
 import { projectFirestore } from '../firebase/config';
 import { onSnapshot, collection, query, orderBy } from "firebase/firestore";
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
 
 export default function ImageList() {
 
@@ -34,7 +36,9 @@ export default function ImageList() {
                     data.map(record =>
                     (
                         <motion.div className="pic" key={record.id} layout>
-                            <img src={record.url} alt="error" />
+                            <Link to={`/image/`+record.id}>
+                                <img src={record.url} alt="error" />
+                            </Link>
                         </motion.div>
                     )
                     )}
