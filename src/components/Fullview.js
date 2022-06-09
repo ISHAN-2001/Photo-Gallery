@@ -14,8 +14,9 @@ export default function Fullview() {
 
   const [photo, setphoto] = useState(null)
   const [Loading, setLoading] = useState(true)
+  const [imageload, setimageload] = useState(false)
   useEffect(() => {
-
+    setimageload(true)
     async function getdata() {
       const docRef = doc(projectFirestore, "images", id);
       const docSnap = await getDoc(docRef);
@@ -24,6 +25,7 @@ export default function Fullview() {
         //console.log("Document data:", docSnap.data());
         setphoto(docSnap.data())
         //console.log(photo.url)
+        setimageload(false)
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
@@ -56,8 +58,10 @@ export default function Fullview() {
     <>
       {Loading && 
       <img src="/images/trash.svg" alt="add" className='trash' style={{ width: 35, height: 35, cursor: 'pointer' }}
-      onClick={handledelete} /> }
+          onClick={handledelete} />}
+      {Loading===false && <p>Deleting...</p> }
       <div className='fullview'>
+        {imageload && <p>Loading... Please wait...</p> }
         {photo && <img src={photo.url} alt="pic" />}
       </div>
     </>

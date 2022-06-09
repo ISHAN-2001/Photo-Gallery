@@ -11,8 +11,9 @@ export default function ImageList() {
 
     // Listening to realtime updates...
     const [data, setdata] = useState([])
+    const [loading, setloading] = useState(false)
     useEffect(() => {
-        
+        setloading(true)
         const q =query(collection(projectFirestore, "images"),orderBy("time","desc"))
         const unsub = onSnapshot(q, (snapshot) => {
             let books=[]
@@ -20,6 +21,7 @@ export default function ImageList() {
                 books.push({...doc.data(),id:doc.id})
             })
             setdata(books)
+            setloading(false)
         });
     
       return () => {
@@ -30,7 +32,7 @@ export default function ImageList() {
 
     return (
         <div>
-            
+            {loading && <p>Loading... Please Wait...</p> }
             <div className="image-list">
                 {data &&
                     data.map(record =>
