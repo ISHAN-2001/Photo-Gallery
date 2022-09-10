@@ -1,9 +1,8 @@
 import './App.css';
-import UploadForm from './components/UploadForm'
-import ImageList from './components/ImageList';
 import Fullview from './components/Fullview';
 import { BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
 import NotFound from './components/NotFound';
+import Home from './components/Home';
 
 function App() {
 
@@ -25,7 +24,7 @@ function App() {
           </Route> */}
 
           {/* React router v6 code */}
-          <Route path="/" element={<> <UploadForm /> <ImageList /> </>} />
+          <Route path="/" element={<Home />} />
           <Route path="/image/:id" element={< Fullview />} />
           <Route path="*" element={ NotFound }/>
           
