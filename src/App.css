@@ -70,6 +70,41 @@ input[type=file]{
     top: 50px;
     right:100px;
 }
+.center-form{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type="password"]{
+    background: transparent;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.5s ease-in-out;
+    /* width: 10%; */
+    margin-bottom: 10px;
+}
+input[type="password"]:focus{
+    border-color: #2385cc;
+}
 
 
-
+.btn{
+    padding: 7px 13px;
+    background: #2385cc;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #2385cc !important;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    margin: 0 auto;
+}
+.btn:hover{
+    background: transparent;
+    color: #2385cc;
+}

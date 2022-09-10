@@ -3,6 +3,7 @@ import Fullview from './components/Fullview';
 import { BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import Home from './components/Home';
+import Validate from './components/Validate';
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
           </Route> */}
 
           {/* React router v6 code */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Validate />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/image/:id" element={< Fullview />} />
           <Route path="*" element={ NotFound }/>
           
