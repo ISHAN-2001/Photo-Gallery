@@ -46,6 +46,7 @@ input[type=file]{
   padding: 50% 0;
   /* padding controls height, will always be perfectly square regardless of width */
   position: relative;
+  transition: 0.5s ease-in-out;
   /* opacity: 0.8; */
 }
 .pic img{
@@ -55,6 +56,10 @@ input[type=file]{
     position: absolute;
     top: 0;
     left: 0;
+    
+}
+.pic:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .fullview{
     display: flex;
